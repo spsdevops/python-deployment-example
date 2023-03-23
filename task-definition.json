@@ -1,0 +1,77 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "paketo",
+            "image": "",
+            "repositoryCredentials": {
+                "credentialsParameter": "ARN_CREDENTIALS_DOCKERHUB"
+            },
+            "cpu": 0,
+            "links": [],
+            "portMappings": [
+                {
+                    "containerPort": 8001,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [{
+                "name": "LOG_LEVEL",
+                "value": "info"
+            },{
+                "name": "CONTEXT_NAME",
+                "value": "api-test"
+            },{
+                "name": "CONTEXT_VERSION",
+                "value": "v1"
+            },{
+                "name": "DECODE_FILE",
+                "value": "ISO-8859-1"
+            },{
+                "name": "NODE_ENV",
+                "value": "dev"
+            },{
+                "name": "PORT",
+                "value": "8000"
+            }],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                    {
+                        "name": "TEST",
+                        "valueFrom": "/CLUSTER_NAME/TEST"
+                    }                  
+            ],
+            "dnsServers": [],
+            "dnsSearchDomains": [],
+            "extraHosts": [],
+            "dockerSecurityOptions": [],
+            "dockerLabels": {},
+            "limits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "",
+                    "awslogs-region": "",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "",
+    "taskRoleArn": "TASK_EXECUTION_ROLE",
+    "executionRoleArn": "TASK_EXECUTION_ROLE",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024"
+}
