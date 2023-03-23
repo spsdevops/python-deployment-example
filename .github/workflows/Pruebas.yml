@@ -8,7 +8,7 @@ permissions:
 on:
   push:
     branches:
-      - Pruebas
+      - pruebas
   workflow_dispatch:
 
 

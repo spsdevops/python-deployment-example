@@ -14,9 +14,9 @@ on:
 
 env:
   
-  AWS_ECS_CLUSTER: hello-world
+  AWS_ECS_CLUSTER: sps
   
-  SERVICE_NAME: hello-world
+  SERVICE_NAME: api-python
   SERVICE_PORT: 8000
   SERVICE_BASE_PATH: /api-test/v1/
   SERVICE_HEALTH_PATH: /api-test/v1/salud
