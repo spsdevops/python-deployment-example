@@ -8,7 +8,7 @@ permissions:
 on:
   push:
     branches:
-      - Desarrollo
+      - desarrollo
   workflow_dispatch:
 
 
@@ -16,20 +16,20 @@ env:
   
   AWS_ECS_CLUSTER: hello-world
   
-  SERVICE_NAME: hello-world
+  SERVICE_NAME: api-python
   SERVICE_PORT: 8000
-  SERVICE_BASE_PATH: /api-test/v1/
-  SERVICE_HEALTH_PATH: /api-test/v1/salud
-  SONAR_PROJECT_KEY: test_local
+  SERVICE_BASE_PATH: /api-python/
+  SERVICE_HEALTH_PATH: /api-python/health
+  SONAR_PROJECT_KEY: python_api
 
   AWS_ALB_NUMBER: 1
-  AWS_ALB_PRIORITY: 2
+  AWS_ALB_PRIORITY: 5
   AWS_R53_SUB_DOMAIN: "apis"
   AWS_VPC_NAME: NMP-Servicios
   AWS_DEPLOY_REGION: us-east-2
   AWS_SAM_VERSION: 1.37.0
   
-  BUILDPACK_LANGUAGE: paketo-buildpacks/nodejs
+  BUILDPACK_LANGUAGE: paketo-buildpacks/python
   BUILDPACK_BUILDER: paketobuildpacks/builder:base
   BUILDPACK_ENV_FILE: .buildpackenv
 
