@@ -35,9 +35,6 @@
             },{
                 "name": "PORT",
                 "value": "8000"
-            },{
-                "name": "SALUDO",
-                "value": "Hola desde AWS"
             }],
             "environmentFiles": [],
             "mountPoints": [],
@@ -46,7 +43,11 @@
                     {
                         "name": "TEST",
                         "valueFrom": "/CLUSTER_NAME/TEST"
-                    }                  
+                    },
+                    {
+                        "name": "SALUDO",
+                        "valueFrom": "/hello-world/api-python-api/SALUDO"
+                    }             
             ],
             "dnsServers": [],
             "dnsSearchDomains": [],
