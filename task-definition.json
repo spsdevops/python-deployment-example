@@ -43,7 +43,11 @@
                     {
                         "name": "TEST",
                         "valueFrom": "/CLUSTER_NAME/TEST"
-                    }                  
+                    },
+                    {
+                        "name": "SALUDO",
+                        "valueFrom": "/hello-world/api-python-api/SALUDO-cifrado"
+                    }             
             ],
             "dnsServers": [],
             "dnsSearchDomains": [],

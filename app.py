@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Text, Optional
 from datetime import datetime
 from uuid import uuid4
+import os
 
 app = FastAPI()
 
@@ -17,28 +18,28 @@ class Post(BaseModel):
     published_at: Optional[datetime]
     published: bool = False
 
-@app.get('/')
+@app.get('/api-python/')
 def read_root():
     return {"message":"Welcome to my API"}
 
-@app.get('/posts')
+@app.get('/api-python/posts')
 def get_posts():
     return posts
 
-@app.post('/posts')
+@app.post('/api-python/posts')
 def save_post(post: Post):
     post.id = str(uuid4())
     posts.append(post.dict())
     return posts[-1]
 
-@app.get('/posts/{post_id}')
+@app.get('/api-python/posts/{post_id}')
 def get_post(post_id:str):
     for post in posts:
         if post["id"]==post_id:
             return post
     raise HTTPException(status_code=404, detail="Post Not Found")
     
-@app.delete('/posts/{post_id}')
+@app.delete('/api-python/posts/{post_id}')
 def delete_post(post_id:str):
     for index, post in enumerate(posts):
         if post["id"]==post_id:
@@ -47,7 +48,7 @@ def delete_post(post_id:str):
     raise HTTPException(status_code=404, detail="Post Not Found")
 
 
-@app.put('/posts/{post_id}')
+@app.put('/api-python/posts/{post_id}')
 def update_post(post_id:str, updatedPost:Post):
     for index, post in enumerate(posts):
         if post["id"]==post_id:
@@ -57,6 +58,7 @@ def update_post(post_id:str, updatedPost:Post):
             return {"message":"Post has been updated successfully"}
     raise HTTPException(status_code=404, detail="Post Not Found")
 
-@app.get('/health')
+@app.get('/api-python/health')
 def get_health():
-    return {"message":"Healthy API"}
+    venv = os.environ.get('SALUDO')
+    return {"message":venv}
