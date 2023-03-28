@@ -46,7 +46,7 @@
                     },
                     {
                         "name": "SALUDO",
-                        "valueFrom": "/hello-world/api-python-api/SALUDO"
+                        "valueFrom": "/hello-world/api-python-api/SALUDO-cifrado"
                     }             
             ],
             "dnsServers": [],
