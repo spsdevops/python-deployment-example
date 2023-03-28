@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import Text, Optional
 from datetime import datetime
 from uuid import uuid4
+import os
 
 app = FastAPI()
 
@@ -59,4 +60,5 @@ def update_post(post_id:str, updatedPost:Post):
 
 @app.get('/api-python/health')
 def get_health():
-    return {"message":"Healthy API"}
+    venv = os.environ.get('SALUDO')
+    return {"message":venv}

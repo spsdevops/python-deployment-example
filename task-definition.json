@@ -35,6 +35,9 @@
             },{
                 "name": "PORT",
                 "value": "8000"
+            },{
+                "name": "SALUDO",
+                "value": "Hola desde AWS"
             }],
             "environmentFiles": [],
             "mountPoints": [],
